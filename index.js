@@ -6,7 +6,7 @@ const app = express();
 app.use(morgan('combined'));
 
 app.get('/', (req, res) => {
-  res.send(`Server running on port 4000`);
+  res.send(`Server running on port 4000 now`);
 });
 
 app.listen(PORT, () => {
