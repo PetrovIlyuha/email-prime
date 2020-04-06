@@ -1,14 +1,16 @@
-const express = require('express');
-const morgan = require('morgan');
+const express = require('express')
+const cors = require('cors')
+require('dotenv').config()
+const morgan = require('morgan')
+require('./services/passport')
 
-const PORT = process.env.PORT || 4000;
-const app = express();
-app.use(morgan('combined'));
+const PORT = process.env.PORT || 4000
 
-app.get('/', (req, res) => {
-  res.send(`Server running on port 4000 now`);
-});
+const app = express()
+require('./routes/authRoutes')(app)
+app.use(morgan('combined'))
+app.use(cors())
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on PORT ${PORT}`);
-});
+  console.log(`Server is listening on PORT ${PORT}`)
+})
