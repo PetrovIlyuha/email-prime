@@ -1,6 +1,19 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
+const mongoose = require('mongoose')
 const keys = require('../config/keys')
+
+const User = mongoose.model('users')
+
+passport.serializeUser((user, done) => {
+  done(null, user.id)
+})
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+    done(null, user)
+  })
+})
 
 passport.use(
   new GoogleStrategy(
@@ -8,11 +21,19 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
+      proxy: true,
     },
-    (accessToken, refreshToken, profile, done) => {
-      console.log('Access tokem', accessToken)
-      console.log('Refresh Token', refreshToken)
-      console.log('Profile', profile)
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ googleId: profile.id })
+
+      if (existingUser) {
+        console.log('User was found')
+        return done(null, existingUser)
+      }
+
+      const user = await new User({ googleId: profile.id }).save()
+      console.log('user was created')
+      done(null, user)
     }
   )
 )
