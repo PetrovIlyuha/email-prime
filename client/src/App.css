@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.google_signin {
+  padding: 20px;
+  background-color: #043744;
+  background-image: linear-gradient(294deg, #043744 0%, #b721ff 100%);
+  border: 1px solid #f2eaec;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #a6e1fa;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.google_signin:hover {
+  background-color: #065d77;
+  padding: 22px;
+  border: 1px solid yellow;
+  background-image: linear-gradient(294deg, #065d77 0%, #9b8ca5 100%);
+}
