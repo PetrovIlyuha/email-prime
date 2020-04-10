@@ -1,0 +1,34 @@
+.nav-wrapper {
+  background-color: #226db5;
+  background-image: linear-gradient(
+    89deg,
+    #09182e 15%,
+    #2bced6 35%,
+    white 50%,
+    #fc3a52 75%,
+    #fc3a52 100%
+  );
+}
+
+.nav-wrapper .brand-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Bitter', italic serif;
+}
+.nav-wrapper img {
+  transition: 0.2s;
+  border-bottom: 2px solid transparent;
+  opacity: 0.92;
+  width: 90px;
+  padding: 5px;
+}
+.nav-wrapper img:hover {
+  border-bottom: 2px solid #fc3a52;
+  opacity: 1;
+}
+
+.login {
+  font-family: 'Cantarell', sans-serif;
+  font-size: 1.3rem;
+}
