@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
+import { fetchUser } from '../actions/index'
+import { connect } from 'react-redux'
+import Landing from './Landing'
 import './App.css'
 
 import Header from './Header'
@@ -19,15 +22,11 @@ const SurveyNew = () => {
     </div>
   )
 }
-const Landing = () => {
-  return (
-    <div>
-      <h1>Landing Page</h1>
-    </div>
-  )
-}
 
-function App() {
+function App({ fetchUser }) {
+  useEffect(() => {
+    fetchUser()
+  }, [fetchUser])
   return (
     <BrowserRouter>
       <Header />
@@ -38,4 +37,4 @@ function App() {
   )
 }
 
-export default App
+export default connect(null, { fetchUser })(App)
