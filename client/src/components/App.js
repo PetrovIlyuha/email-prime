@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
+import './App.css'
 
 import Header from './Header'
-import './App.css'
 
 const Dashboard = () => {
   return (
@@ -11,6 +11,7 @@ const Dashboard = () => {
     </div>
   )
 }
+
 const SurveyNew = () => {
   return (
     <div>
@@ -21,7 +22,7 @@ const SurveyNew = () => {
 const Landing = () => {
   return (
     <div>
-      <h3>Landing Page</h3>
+      <h1>Landing Page</h1>
     </div>
   )
 }
@@ -30,11 +31,9 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <div className="container">
-        <Route path="/" exact component={Landing} />
-        <Route path="/surveys" exact component={Dashboard} />
-        <Route path="/surveys/new" component={SurveyNew} />
-      </div>
+      <Route path="/" exact component={Landing} />
+      <Route path="/surveys" exact component={Dashboard} />
+      <Route path="/surveys/new" component={SurveyNew} />
     </BrowserRouter>
   )
 }
