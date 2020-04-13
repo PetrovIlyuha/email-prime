@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
-    "http-proxy-middleware": "^1.0.3"
+    "http-proxy-middleware": "^1.0.3",
+    "react-stripe-checkout": "^2.6.3"
   }
 }
