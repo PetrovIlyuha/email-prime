@@ -19,6 +19,7 @@ mongoose.connect(
 
 const app = express()
 
+app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(
   cookieSession({
@@ -26,11 +27,11 @@ app.use(
     keys: [keys.cookieKey],
   })
 )
-app.use(morgan('combined'))
 app.use(passport.initialize())
 app.use(passport.session())
 
 require('./routes/authRoutes')(app)
+require('./routes/billingRoutes')(app)
 
 const PORT = process.env.PORT || 4000
 app.listen(PORT)
