@@ -3,35 +3,45 @@ import Logo from '../img/Email Prime Logo.png'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './Header.css'
+import StripePayment from './StripeCheckout'
+import { FaGoogle, FaHeartBroken } from 'react-icons/fa'
+import { GiSpinningBlades } from 'react-icons/gi'
 
 const Header = ({ auth }) => {
   const renderLoginButton = (auth) => {
     if (auth === null) {
       return (
-        <a className="login" href="/">
-          <span role="img" aria-label="loading">
-            😴
-          </span>{' '}
-          Loading...
-        </a>
+        <ul>
+          <li>
+            <a className="login" href="/">
+              <GiSpinningBlades style={{ marginRight: 5 }} /> Loading...
+            </a>
+          </li>
+        </ul>
       )
     } else if (auth === false) {
       return (
-        <a href="/auth/google" className="login">
-          <span role="img" aria-label="loading">
-            👋
-          </span>{' '}
-          Login with Google
-        </a>
+        <ul>
+          <li>
+            <a href="/auth/google" className="login">
+              <FaGoogle style={{ marginRight: 5 }} />
+              {''} Login
+            </a>
+          </li>
+        </ul>
       )
     } else {
       return (
-        <a href="/api/logout" className="login">
-          <span role="img" aria-label="loading">
-            🚪
-          </span>{' '}
-          Logout
-        </a>
+        <ul>
+          <li style={{ marginRight: 10 }}>
+            <StripePayment />
+          </li>
+          <li>
+            <a href="/api/logout" className="login">
+              <FaHeartBroken style={{ marginRight: 5 }} /> Logout
+            </a>
+          </li>
+        </ul>
       )
     }
   }
@@ -42,9 +52,7 @@ const Header = ({ auth }) => {
           <img src={Logo} alt="Brand Logo" />
           Email Prime
         </Link>
-        <ul className="right">
-          <li>{renderLoginButton(auth)}</li>
-        </ul>
+        <ul className="right">{renderLoginButton(auth)}</ul>
       </div>
     </nav>
   )
