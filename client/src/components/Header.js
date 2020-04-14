@@ -36,6 +36,9 @@ const Header = ({ auth }) => {
           <li style={{ marginRight: 10 }}>
             <StripePayment />
           </li>
+          <li style={{ marginRight: 10 }}>
+            <CreditsToll auth={auth} />
+          </li>
           <li>
             <a href="/api/logout" className="login">
               <FaHeartBroken style={{ marginRight: 5 }} /> Logout
@@ -55,6 +58,22 @@ const Header = ({ auth }) => {
         <ul className="right">{renderLoginButton(auth)}</ul>
       </div>
     </nav>
+  )
+}
+
+const CreditsToll = ({ auth }) => {
+  return (
+    <div
+      style={{
+        background:
+          'linear-gradient(-45deg, rgb(86, 95, 151) 0%, rgb(86, 95, 151) 63%,rgb(105, 118, 165) 63%, rgb(105, 118, 165) 75%,rgb(125, 141, 179) 75%, rgb(125, 141, 179) 81%,rgb(144, 165, 193) 81%, rgb(144, 165, 193) 85%,rgb(164, 188, 207) 85%, rgb(164, 188, 207) 90%,rgb(183, 211, 221) 90%, rgb(183, 211, 221) 100%)',
+        padding: '0 3px',
+        fontWeight: 'bold',
+        fontFamily: "'Cantarell', sans-serif",
+      }}
+    >
+      {auth.credits > 0 && `Credits: ${auth.credits}`}
+    </div>
   )
 }
 
