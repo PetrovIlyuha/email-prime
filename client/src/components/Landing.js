@@ -10,7 +10,7 @@ const Landing = () => {
         always easy to crack how to get your recipients excited about email
         promotion – now you can use our service.
       </p>
-      <img src={Ease} alt="Promo image" style={{ width: '100vw' }} />
+      <img src={Ease} alt="Promo Background" style={{ width: '100vw' }} />
     </div>
   )
 }
