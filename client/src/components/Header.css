@@ -14,7 +14,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: 'Bitter', italic serif;
+  font-family: 'Cantarell', serif;
+  font-style: italic;
 }
 .nav-wrapper img {
   transition: 0.2s;
@@ -35,4 +36,25 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.credits_display {
+  background: linear-gradient(
+    -45deg,
+    rgb(86, 95, 151) 0%,
+    rgb(86, 95, 151) 63%,
+    rgb(105, 118, 165) 63%,
+    rgb(105, 118, 165) 75%,
+    rgb(125, 141, 179) 75%,
+    rgb(125, 141, 179) 81%,
+    rgb(144, 165, 193) 81%,
+    rgb(144, 165, 193) 85%,
+    rgb(164, 188, 207) 85%,
+    rgb(164, 188, 207) 90%,
+    rgb(183, 211, 221) 90%,
+    rgb(183, 211, 221) 100%
+  );
+  padding: 0 3px;
+  font-weight: bold;
+  font-family: 'Bitter', sans-serif;
 }
