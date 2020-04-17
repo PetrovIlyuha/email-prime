@@ -1,51 +1,31 @@
-const sendgrid = require('sendgrid')
-const { mail: helper } = sendgrid
+const sgMail = require('@sendgrid/mail')
+const helpers = require('@sendgrid/helpers')
 const keys = require('../config/keys')
 
-class Mailer extends helper.Mail {
+class Mailer extends helpers.classes.Mail {
   constructor({ subject, recipients }, content) {
     super()
+    this.setFrom('no-reply@email-prime.com')
+    this.setSubject(subject)
+    this.addHtmlContent(content)
+    this.recipients = recipients.map(({ email }) =>
+      helpers.classes.EmailAddress.create(email)
+    )
 
-    this.sgApi = sendgrid(keys.sendGridKey)
-    this.from_email = new helper.Email('no-reply@email-prime.com')
-    this.subject = subject
-    this.body = new helper.Content('text/html', content)
-    this.recipients = this.formatAddresses(recipients)
-
-    this.addContent(this.body)
-    this.addClickTracking()
-    this.addRecipients()
-  }
-
-  formatAddresses(recipients) {
-    recipients.map(({ email }) => {
-      return new helper.Email(email)
+    this.setTrackingSettings({
+      clickTracking: { enable: true, enableText: true },
     })
+
+    this.addTo(this.recipients)
   }
 
-  addClickTracking() {
-    const trackingSettings = new helper.TrackingSettings()
-    const clickTracking = new helper.ClickTracking(true, true)
-
-    trackingSettings.setClickTracking(clickTracking)
-    this.addTrackingSettings(trackingSettings)
-  }
-
-  addRecipients() {
-    const personalize = new helper.Personalization()
-    this.recipients.forEach((recipient) => {
-      personalize.addTo(recipient)
-    })
-    this.addPersonalization(personalize)
-  }
   async send() {
-    const request = this.sgApi.emptyRequest({
-      method: 'POST',
-      path: '/v3/mail/send',
-      body: this.toJSON(),
-    })
-    const response = this.sgApi.API(request)
-    return response
+    sgMail.setApiKey(keys.sendGridKey)
+    try {
+      return await sgMail.send(this)
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
 
