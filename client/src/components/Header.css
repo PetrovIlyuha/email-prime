@@ -1,13 +1,6 @@
 .nav-wrapper {
-  background-color: #226db5;
-  background-image: linear-gradient(
-    89deg,
-    #09182e 15%,
-    #2bced6 35%,
-    white 50%,
-    #fc3a52 75%,
-    #fc3a52 100%
-  );
+  background-color: #24186d;
+  background-image: linear-gradient(19deg, #24186d 0%, #b721ff 100%);
 }
 
 .nav-wrapper .brand-logo {
@@ -15,7 +8,7 @@
   flex-direction: row;
   align-items: center;
   font-family: 'Cantarell', serif;
-  font-style: italic;
+  font-size: 2rem;
 }
 .nav-wrapper img {
   transition: 0.2s;
@@ -32,29 +25,46 @@
 .login {
   font-family: 'Cantarell', sans-serif;
   font-size: 1.3rem;
-  background-color: #52437b;
+  background: #ff149d;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(223.88deg, #ff149d 8.89%, #620f32 94.31%);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(223.88deg, #ff149d 8.89%, #620f32 94.31%);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: #faf4d0;
 }
 
 .credits_display {
   background: linear-gradient(
-    -45deg,
-    rgb(86, 95, 151) 0%,
-    rgb(86, 95, 151) 63%,
-    rgb(105, 118, 165) 63%,
-    rgb(105, 118, 165) 75%,
-    rgb(125, 141, 179) 75%,
-    rgb(125, 141, 179) 81%,
-    rgb(144, 165, 193) 81%,
-    rgb(144, 165, 193) 85%,
-    rgb(164, 188, 207) 85%,
-    rgb(164, 188, 207) 90%,
-    rgb(183, 211, 221) 90%,
-    rgb(183, 211, 221) 100%
-  );
+      45deg,
+      rgba(4, 23, 92, 0.45) 0%,
+      rgba(4, 23, 92, 0.45) 25%,
+      rgba(23, 46, 132, 0.45) 25%,
+      rgba(23, 46, 132, 0.45) 50%,
+      rgba(42, 70, 173, 0.45) 50%,
+      rgba(42, 70, 173, 0.45) 75%,
+      rgba(61, 93, 213, 0.45) 75%,
+      rgba(61, 93, 213, 0.45) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgb(8, 63, 29) 0%,
+      rgb(8, 63, 29) 25%,
+      rgb(39, 70, 68) 25%,
+      rgb(39, 70, 68) 50%,
+      rgb(69, 77, 107) 50%,
+      rgb(69, 77, 107) 75%,
+      rgb(100, 84, 146) 75%,
+      rgb(100, 84, 146) 100%
+    );
+
   padding: 0 3px;
   font-weight: bold;
+  padding: 0 20px;
   font-family: 'Bitter', sans-serif;
+  color: #f9dc5c;
 }
