@@ -3,6 +3,7 @@ import StripeCheckout from 'react-stripe-checkout'
 import { GoZap } from 'react-icons/go'
 import { connect } from 'react-redux'
 import { handleToken } from '../actions'
+import './StripeCheckout.css'
 
 const StripePayment = ({ handleToken }) => {
   return (
@@ -13,7 +14,7 @@ const StripePayment = ({ handleToken }) => {
       token={(token) => handleToken(token)}
       stripeKey={`${process.env.REACT_APP_STRIPE_KEY}`}
     >
-      <button className="btn btn-primary">
+      <button className="stripe_btn">
         <GoZap style={{ marginRight: 3 }} />
         {''}
         Get 5 Credits
