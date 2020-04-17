@@ -3,25 +3,12 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { fetchUser } from '../actions/index'
 import { connect } from 'react-redux'
 import Landing from './Landing'
+import Dashboard from './Dashboard'
+import SurveyNew from './surveys/SurveyNew'
+
 import './App.css'
 
 import Header from './Header'
-
-const Dashboard = () => {
-  return (
-    <div>
-      <h1>Dashboard</h1>
-    </div>
-  )
-}
-
-const SurveyNew = () => {
-  return (
-    <div>
-      <h1>Launch New Survey</h1>
-    </div>
-  )
-}
 
 function App({ fetchUser }) {
   useEffect(() => {
