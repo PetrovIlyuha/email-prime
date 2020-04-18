@@ -1,0 +1,25 @@
+.survey_field {
+  background: #293462;
+  color: white;
+  border-bottom: 2px solid white;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.survey_field:focus {
+  background-color: black;
+  border-radius: 3px;
+  color: lightyellow;
+}
+.label {
+  color: lightyellow;
+  font-size: 0.9em;
+  font-weight: 700;
+  line-height: 1.2em;
+}
+.error_display {
+  color: yellow;
+  line-height: 6px;
+  font-size: 0.8em;
+}
