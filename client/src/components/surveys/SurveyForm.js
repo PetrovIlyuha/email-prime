@@ -5,32 +5,9 @@ import { Link } from 'react-router-dom'
 import _ from 'lodash'
 import './SurveyForm.css'
 import validateEmails from '../../utils/emailValidator'
+import { FIELDS } from './formFields'
 
-const FIELDS = [
-  {
-    label: 'Survey Title',
-    name: 'title',
-    errorMsg: "Don't you want to add a title? 🤷‍♀️",
-  },
-  {
-    label: 'Subject Line',
-    name: 'subject',
-    errorMsg: 'It would be great to provide a subject line 😎',
-  },
-  {
-    label: 'Email Body',
-    name: 'body',
-    errorMsg: 'Your survey will look fantastic with the body. 🥳',
-  },
-  {
-    label: 'Recipient List',
-    name: 'emails',
-    errorMsg:
-      "Who are the recipients? We won't know without your assistance 🤷‍♀️",
-  },
-]
-
-const SurveyForm = (props) => {
+const SurveyForm = ({ onSurveySubmit, ...props }) => {
   const renderFields = () => {
     return _.map(FIELDS, ({ name, label }) => {
       return (
@@ -45,9 +22,10 @@ const SurveyForm = (props) => {
     })
   }
   return (
-    <div className="container ">
+    <div className="container survey_positioning">
+      <h3>Create a Survey</h3>
       <div className="form form_group">
-        <form onSubmit={props.handleSubmit((values) => console.log(values))}>
+        <form onSubmit={props.handleSubmit(onSurveySubmit)}>
           {renderFields()}
           <div className="buttons_group">
             <Link to="/surveys">
@@ -89,4 +67,5 @@ const validate = (values) => {
 export default reduxForm({
   validate,
   form: 'surveyForm',
+  destroyOnUnmount: false,
 })(SurveyForm)
