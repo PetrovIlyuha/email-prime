@@ -51,7 +51,7 @@ const Header = ({ auth }) => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <Link to={auth ? '/surveys' : '/'} className="left brand-logo">
+        <Link to={auth ? '/surveys' : '/'} className="left brand_logo">
           <img src={Logo} alt="Brand Logo" />
           Email Prime
         </Link>
