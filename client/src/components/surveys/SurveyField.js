@@ -1,9 +1,11 @@
 import React from 'react'
-
-const SurveyField = () => {
+import './SurveyField.css'
+const SurveyField = ({ input, label, meta: { touched, error } }) => {
   return (
-    <div>
-      <input />
+    <div className="survey_field">
+      <label className="label">{label}</label>
+      <input {...input} className="survey_field" />
+      <p className="error_display">{touched && error}</p>
     </div>
   )
 }
