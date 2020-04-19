@@ -16,7 +16,7 @@ export const FIELDS = [
   },
   {
     label: 'Recipient List',
-    name: 'emails',
+    name: 'recipients',
     errorMsg:
       "Who are the recipients? We won't know without your assistance 🤷‍♀️",
   },
