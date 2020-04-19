@@ -53,8 +53,8 @@ const SurveyForm = ({ onSurveySubmit, ...props }) => {
 
 const validate = (values) => {
   const errors = {}
-  if (values.emails) {
-    errors.emails = validateEmails(values.emails)
+  if (values.recipients) {
+    errors.recipients = validateEmails(values.recipients)
   }
   _.each(FIELDS, ({ name, errorMsg }) => {
     if (!values[name]) {
